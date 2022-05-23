@@ -20,7 +20,7 @@ for(let i = 0; i < xAsArray.length; i++) {
 return true
 };
 
-var isPalindrome = function(x) {
+var isPalindromeIII = function(x) {
     if (x < 0) {
         return false
     }
@@ -33,6 +33,21 @@ for(let i = 0; i < midIndex; i++) {
     }
 }
 return true
+};
+
+var isPalindrome = function(x) {
+    if (x < 0) {
+        return false
+    }
+    x = String(x)
+    const midIndex = Math.floor(x.length / 2)
+
+    for(let i = 0; i < midIndex; i++) {
+        if (x[i] != x[x.length - 1 - i]) {
+            return false
+        }
+    }
+    return true
 };
 
 var convertNumberToArray = function(x) {
