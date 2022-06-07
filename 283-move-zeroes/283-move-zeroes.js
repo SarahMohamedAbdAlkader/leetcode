@@ -10,7 +10,7 @@ var moveZeroes = function(nums) {
             i--;
         }
     }
-    for (let i = 0; i < length; i++) {
+    for (let i = nums.length; i < length; i++) {
         if (!nums[i]) {
             nums[i] = 0;
 
