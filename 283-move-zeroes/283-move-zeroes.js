@@ -5,7 +5,6 @@
 var moveZeroes = function(nums) {
     const length = nums.length;
     let i = 0;
-
     for (i; i < nums.length; i++) {
         if (nums[i] === 0) {
             nums.splice(i, 1);
@@ -15,7 +14,6 @@ var moveZeroes = function(nums) {
     for (i; i < length; i++) {
         if (!nums[i]) {
             nums[i] = 0;
-
         }
     }
     return nums
