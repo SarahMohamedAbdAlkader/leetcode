@@ -12,15 +12,13 @@ var TimeLimitedCache = function () {
 
 TimeLimitedCache.prototype.set = function (key, value, duration) {
     const existed = this.cachedObject.has(key);
-
     if (existed) {
         clearTimeout(this.cachedObject.get(key).timer)
     }
-    const timeout = setTimeout(() => {
+    const timer = setTimeout(() => {
         this.cachedObject.delete(key);
     }, duration);
-
-    this.cachedObject.set(key, { value, timer: timeout })
+    this.cachedObject.set(key, { value, timer })
     return existed
 };
 
@@ -29,7 +27,6 @@ TimeLimitedCache.prototype.set = function (key, value, duration) {
  * @return {number} value associated with key
  */
 TimeLimitedCache.prototype.get = function (key) {
-    console.log(this.cachedObject)
     const existedValue = this.cachedObject.has(key)
     return existedValue ? this.cachedObject.get(key).value : -1
 };
